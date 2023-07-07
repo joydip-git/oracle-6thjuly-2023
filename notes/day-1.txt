@@ -1,0 +1,101 @@
+1. what is DBMS?
+	- database management system
+	- a software
+	- store, retrieve and manage data
+		- storage and management
+	- define data (data definition)
+	- data updation
+	- data retrieval
+	- administration - creating and managing users, maintain data integrity, data security, concurrency, monitoring performance, recovering from unexpected failure
+
+SQL Developer, SQL* Plus, SQL web user interfaces
+
+2. storing data:
+	- ways or models: Relational Model, Entity Relational Model, Object-based Data Model, Semi-structured data model
+
+3. what is Database?
+	- collection of inter-related data
+	- it can be used to store data along with schemas, views, reports, stored procedure, functions, indexes etc.
+
+Relational Model: model is about storing data in the form of rows and columns within a table (relation). the tables can have reltaionship amongst each other.
+
+Entity Relational Model: model is about logical presentation of data as objects and relationship between them. 
+	entity: student
+	attributes: student_id, student_name, student_subject
+
+	entity set: a set of student entities
+
+Object-based Data Model: an extension of ER model. provides you with functionalities, encapsulation feature, object identity etc.
+
+Semi-structured data model: Hierarchical and Network model
+
+<?xml version="1.0">
+<students>
+	<student id="1">
+		<name>atul</name>
+		<subject>Java</subject>
+	</student>
+	<student id="2">
+		<name>nirmal</name>
+		<subject>oracle</subject>
+	</student>
+</students>
+
+
+Postgre SQL, DB2, SQL Server, MySql, Oracle: Relational Database Management System
+
+
+Oracle:
+	a. architecture:
+		- database and instance
+		- files: data files, control files and redo log files
+
+	b. Editions:
+		 - enterprise edition (EE)
+	         - standard edition (SE)
+		 - express edition (XE)
+
+	c. features:
+		 - cross-platform
+		 - powerful network stack
+		 - ACID-compliant
+		 - structural
+			 - logical data structure
+			 - Partioning
+			 - memory caching
+			 - backup and recovery
+			 - clustering (Real Application Clusters)
+
+Oracle 19c PL/SQL:
+	- create, delete, update table (DDL)
+	- Insert, delete or update record (DML)
+	.........................................
+	- views
+	- stored procedure
+	- function - system function and user-defined functions
+	- triggers
+	- cursors
+	- PL/SQL
+
+data types:
+number (precision,scale)
+char: fixed-length character string
+nchar: fixed-length unicode character data
+varchar2(size[byte|char]): variable length characters
+nvarchar2: variable length unicode characters
+date
+timestamp:date and time with fractional seconds precision
+timestamp with time zone:date and time with fractional seconds precision
+interval: period of time
+
+Create Table:
+EMPLOYEES [employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id]
+
+regions
+region_name, region_id (pk)
+
+                
+		
+
+
+
