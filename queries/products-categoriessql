@@ -1,0 +1,23 @@
+--create table categories(
+--category_id number primary key not null,
+--category_name varchar2(20) not null
+--)
+--create table products(
+--product_id number primary key not null,
+--product_name varchar2(20) not null,
+--price number default(0),
+--description varchar2(500),
+--category_id references categories(category_id)
+--)
+
+
+--insert into categories(category_id,category_name) values(1,'book');
+--insert into categories(category_id,category_name) values(2,'mobile');
+--insert into categories(category_id,category_name) values(3,'laptop');
+--
+--insert into products(product_id, product_name, price, description,category_id) values(1,'the alchemist',399.74,'book by paul cohelo',1);
+--insert into products(product_id, product_name, price, description,category_id) values(2,'pillars of the earth',699,'book by ken follet',1);
+--insert into products(product_id, product_name, price, description,category_id) values(3,'dell xps',120000,'new laptop from dell',3);
+--insert into products(product_id, product_name, price, description,category_id) values(4,'hp probook',76000,'new laptop from HP',3);
+--insert into products(product_id, product_name, price, description,category_id) values(5,'iphone 14',140000,'new mobile from apple',2);
+--insert into products(product_id, product_name, price, description,category_id) values(6,'one plus 11',56000,'new mobile from Oneplus',2);

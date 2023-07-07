@@ -1,0 +1,19 @@
+--create table customers(
+--customer_id number primary key not null,
+--customer_name varchar2(50) not null
+--);
+--
+--create table purchases(
+--purchase_id number primary key not null,
+--customer_id number references customers(customer_id),
+--purchase_amount number
+--);
+--
+--insert into customers(customer_id,customer_name) values(1,'anil');
+--insert into customers(customer_id,customer_name) values(2,'sunil');
+--insert into customers(customer_id,customer_name) values(3,'mahesh');
+--
+--insert into purchases(purchase_id,purchase_amount,customer_id) values(1,1000,1);
+--insert into purchases(purchase_id,purchase_amount,customer_id) values(2,2000,1);
+--insert into purchases(purchase_id,purchase_amount,customer_id) values(3,1500,2);
+--insert into purchases(purchase_id,purchase_amount,customer_id) values(4,2500,2);

@@ -1,0 +1,28 @@
+select category_name from categories;
+select product_id,product_name, price,description from products;
+
+select * from customers
+select * from purchases
+
+--order by
+select p.product_id,p.product_name, p.price,p.description from products p order by p.product_name desc;
+--where
+select p.product_id,p.product_name, p.price,p.description from products p where p.price>50000;
+
+select p.product_id,p.product_name, p.price,p.description from products p where p.price>50000 order by p.product_name desc;
+
+select p.product_id,p.product_name, p.price,p.description from products p where p.product_name like '%a%';
+select p.product_id,p.product_name, p.price,p.description from products p where p.product_name like 't%';
+select p.product_id,p.product_name, p.price,p.description from products p where p.product_name like '%h';
+select p.product_id,p.product_name, p.price,p.description from products p where p.product_name like '%ph%';
+--select p.product_id,p.product_name, p.price,p.description from products p where p.product_name like 'th_';
+
+select customer_id, sum(purchase_amount) as "total_purchase_amount" from purchases group by customer_id;
+--following query will not work as the column-name for group by clause is using primary key
+--select customer_id, purchase_amount from purchases group by purchase_id;
+select customer_id, sum(purchase_amount) as "total_purchase_amount" from purchases group by customer_id having sum(purchase_amount)>3500;
+--select customer_id, sum(purchase_amount) as "total_purchase_amount" from purchases group by customer_id where customer_id=2;
+
+select customer_id, purchase_amount from purchases where customer_id>1;
+
+select customer_id, sum(purchase_amount) total_purchase_amount from purchases group by customer_id order by total_purchase_amount desc;

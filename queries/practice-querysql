@@ -1,0 +1,19 @@
+create table regions(
+region_id number primary key not null,
+region_name varchar2(20) not null
+);
+
+create table countries(
+country_id number primary key not null,
+country_name varchar2(20) not null,
+region_id number references regions(region_id)
+);
+
+create table locations(
+location_id number primary key not null,
+street_address varchar2(20),
+city varchar(20) not null,
+postal_code long not null,
+country_id number references countries(country_id)
+);
+

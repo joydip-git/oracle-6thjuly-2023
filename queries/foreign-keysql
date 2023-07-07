@@ -1,0 +1,45 @@
+create table table_one(
+one_id_col number,
+one_name_col varchar2(20) not null,
+constraint pk_tableone_oneidcol primary key(one_id_col)
+);
+
+--create table table_one(
+--one_id_col number primary key not null,
+--one_name_col varchar2(20) not null
+--);
+
+--create table table_two(
+--two_id_col number,
+--two_name_col varchar2(20) not null,
+--fkey_col number,
+--constraint pk_tabletwo_idcol primary key(two_id_col),
+--constraint fk_tableone_oneidcol_tabletwo_fkeycol foreign key(fkey_col) references table_one(one_id_col)
+--);
+
+
+--create table table_two(
+--two_id_col number,
+--two_name_col varchar2(20) not null,
+--fkey_col number references table_one(one_id_col),
+--constraint pk_tabletwo_idcol primary key(two_id_col)
+--);
+
+create table table_two(
+two_id_col number,
+two_name_col varchar2(20) not null,
+fkey_col number
+);
+
+alter table table_two
+add constraint pk_tabletwo_idcol primary key(two_id_col);
+
+alter table table_two
+add constraint fk_tableone_oneidcol_tabletwo_fkeycol foreign key(fkey_col) references table_one(one_id_col);
+
+insert into table_one(one_id_col,one_name_col) values(1,'val1');
+insert into table_one(one_id_col,one_name_col) values(2,'val2');
+
+insert into table_two(two_id_col,two_name_col,fkey_col) values(1,'val11',1);
+insert into table_two(two_id_col,two_name_col,fkey_col) values(2,'val22',2);
+--insert into table_two(two_id_col,two_name_col,fkey_col) values(3,'val33',3);

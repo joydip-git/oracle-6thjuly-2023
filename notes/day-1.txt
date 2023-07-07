@@ -78,21 +78,25 @@ Oracle 19c PL/SQL:
 	- PL/SQL
 
 data types:
-number (precision,scale)
+number (precision,scale) => 2
 char: fixed-length character string
-nchar: fixed-length unicode character data
-varchar2(size[byte|char]): variable length characters
-nvarchar2: variable length unicode characters
-date
+nchar: fixed-length unicode character data => 96
+varchar2(size[byte|char]): variable length characters => 1
+nvarchar2: variable length unicode characters => 1
+date:=> 12
 timestamp:date and time with fractional seconds precision
 timestamp with time zone:date and time with fractional seconds precision
 interval: period of time
+
+others: long, binary_float, binary_double, RAW(size), LONG RAW, rowid,
 
 Create Table:
 EMPLOYEES [employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id]
 
 regions
 region_name, region_id (pk)
+
+self-study: IN, BETWEEN, JOINS, IS NULL, difference between where and having clause, details of having clause
 
                 
 		

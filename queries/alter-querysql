@@ -1,0 +1,22 @@
+alter table sample
+add (
+    extra_col_one varchar2(20) not null,
+    extra_col_two number default(0)
+);
+
+alter table sample
+modify extra_col_one varchar2(50);
+
+alter table sample
+drop column extra_col_two;
+
+alter table sample
+add (
+    extra_col_two number default(0)
+);
+
+alter table sample
+rename column extra_col_two to extra_col;
+
+alter table samples
+rename to sample;
