@@ -1,0 +1,25 @@
+1. difference between where and having clause
+   a. where clause is used to filter the records from the table based on the specified condition. Having clause is used to filter records from groups (created by GROUP BY clause) based on the spcified condition.
+   b. Where clause can be used without group by clause. Having clause can't be used without group by clause.
+   c. where clause can't contain any aggregate function. Having clause can contain aggregate function.
+   d. where clause can be used with select, update and delete statements. Having clause is used only with select statement.
+
+2. IN and BETWEEN keywords
+3. joins - different types
+
+4. PL/SQL:
+	Procedural Language extensions for the Structured Query Language (PL/SQL).
+	SQL: It's a database language both for querying and updating data in the RDBMS.
+	PL/SQL adds many programming constructs to the SQL. It helps to overcome the limitations of SQL. It is very well readable.
+	PL/SQL is an embeded language. It is part of Oracle database. It can't be used like any other stand-alone programming language like python, c, c++, c#, Java etc. It can be executed in a system where Oracle database is installed.
+
+	architecture:
+	a. when you try to execute the PL/SQL block, behind the scene an engine, named, PL/SQL engine takes care of compilation and execution of the PL/SQL block, in  collaboration with SQL engine. the PL part of the PL/SQL is compiled by Procedural Statement Executor of PL/SQL engine and the SQL part of the PL/SQL is compiled and executed by SQL statement executor. the PL/SQL engine converts the actual code into byte code and then that code gets executed.
+   
+	Sections in PL/SQL block:
+		a. declaration section
+		b. Executable section
+		c. Exception-Handling section
+   	Blocks:
+		a. anonymous block: can't be saved in database as database object. 
+		b. named block: stored procedure, triggers, functions etc. are named pl/sql blocks. they can be saved in database as database objects.
