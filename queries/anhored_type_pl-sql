@@ -1,0 +1,52 @@
+--anchored declaration
+SET SERVEROUTPUT ON;
+/*
+--DECLARE
+--    l_customer_name customers.customer_name%TYPE;
+--    l_customer_id customers.customer_id%TYPE;
+--BEGIN
+--    SELECT  
+--        customer_name, customer_id
+--    into 
+--        l_customer_name,
+--        l_customer_id
+--    from customers 
+--    where customer_id=3;
+--    DBMS_OUTPUT.put_line(l_customer_name || ':' || l_customer_id);
+--END;
+*/
+
+DECLARE
+    l_product_maxprice products.price%TYPE;
+    l_product_minprice l_product_maxprice%TYPE;
+    l_product_avgprice l_product_maxprice%TYPE;
+BEGIN
+    /*
+        this is multi line comment       
+    */
+    SELECT 
+        MAX(price),
+        MIN(price),
+        AVG(PRICE)
+    INTO
+        l_product_maxprice,
+        l_product_minprice,
+        l_product_avgprice
+    FROM 
+        PRODUCTS;
+    
+    DBMS_OUTPUT.put_line('max price: '||l_product_maxprice|| ',' || 'min price: '||l_product_minprice||','||'avg price: '||l_product_avgprice);
+END;
+
+
+
+
+
+
+
+
+
+
+
+
+

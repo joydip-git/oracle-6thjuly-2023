@@ -1,0 +1,8 @@
+SET SERVEROUTPUT ON;
+declare 
+    v_emp_name varchar2(50) NOT NULL :='NA';
+    
+begin
+    select employee_name into v_emp_name from employees where employee_id=3;
+    DBMS_OUTPUT.put_line(v_emp_name);
+end;

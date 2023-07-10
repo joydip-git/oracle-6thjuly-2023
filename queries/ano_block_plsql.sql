@@ -11,3 +11,5 @@ BEGIN
         WHEN ZERO_DIVIDE THEN
             DBMS_OUTPUT.put_line(SQLERRM);
 END;
+
+--select * from employees;

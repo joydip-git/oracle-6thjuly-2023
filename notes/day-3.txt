@@ -35,7 +35,7 @@
 
 		NUMBER => s/w arithmatic
 		PLS_INTEGER => h/w arithmatic, faster compared to NUMBER
-			- NATURAL (nonnegative) , NATIRALN (nonnegative with NOT NULL CONSTRAINT), POSITIVE (positive), POSITIVEN (positive with NOT NULL CONSTRAINT), SIGNTYPE (-1,0,1), SIMPLE_INTEGER (PLS_INTEGER with NOT NULL CONSTRAINT)
+			- NATURAL (nonnegative) , NATURALN (nonnegative with NOT NULL CONSTRAINT), POSITIVE (positive), POSITIVEN (positive with NOT NULL CONSTRAINT), SIGNTYPE (-1,0,1), SIMPLE_INTEGER (PLS_INTEGER with NOT NULL CONSTRAINT)
 
 	Boolean: TRUE, FALSE, NULL.
 	used in case of IF..THEN, CASE, LOOP, FOR LOOP, WHILE LOOP control flow structure
@@ -60,6 +60,72 @@
 	NUMBER  => DEC, DECIMAL, DOUBLE PRECISION, FLOAT, INTEGER, INT, NUMERIC, REAL, SMALLINT
 	CHAR 	=> CHARACTER, STRING
 	VARCHAR2 => VARCHAR
+
+
+Variable declaration in PL/SQL:
+	syntax:
+	variable_name datatype [NOT NULL] [:= initial_value]
+
+	local variable: l_****
+	global variable: g_****
+
+	l_emp_name varchar2(50) not null :='NA'
+
+	declare
+		l_first_val number := 10;
+		l_second_val number;
+	begin
+		l_second_val := l_first_val;
+	end
+
+	constants:
+	constant_name CONSTANT data-type [not null] :=expression;
+
+	declare
+		co_savings_acc_interest CONSTANT FLOAT := 7.5;
+		co_circle_pi_value CONSTANT REAL :=3.14;
+		co_circle_radius CONSTANT REAL :=12;
+		co_circle_area CONSTNAT REAL:= (co_circle_radius * co_circle_pi_value**2);
+
+	control flow structures:
+	a. IF
+		 - IF THEN
+		 - IF THEN ELSE
+		 - IF THEN ELSIF
+		 - nested IF
+
+a. IF THEN
+	IF condition THEN
+		statements;
+	END IF;
+
+b. IF THEN ELSE
+	IF condition THEN
+		statements;
+	ELSE
+		else_statements;
+	END IF;
+
+	
+c. IF THEN ELSIF
+	IF condition THEN
+		statements;
+	ELSIF
+		else_statements;
+	ELSIF
+		else_statements;
+	
+	END IF;
+d. Nested IF:
+	IF first_condition THEN
+		IF second_condition THEN
+			nested_if_statements;
+		ELSE
+			else_statements;
+		END IF;
+	ELSE
+		else_statements;
+	END IF;
 
 
 

@@ -1,0 +1,8 @@
+SET SERVEROUTPUT ON;
+declare		
+		co_circle_pi_value CONSTANT REAL :=3.14;
+		co_circle_radius CONSTANT REAL :=12;
+		co_circle_area CONSTANT REAL:= (co_circle_radius * co_circle_pi_value**2);
+begin
+    DBMS_OUTPUT.put_line(co_circle_area);
+end;
