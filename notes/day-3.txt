@@ -23,3 +23,44 @@
    	Blocks:
 		a. anonymous block: can't be saved in database as database object. 
 		b. named block: stored procedure, triggers, functions etc. are named pl/sql blocks. they can be saved in database as database objects.
+
+	data types in pl/sql:
+	 - scalar type: single value:
+		number, boolean, character, datetime
+	 - composite type: multiple values (record, collection etc.)	
+
+	Numeric data types:
+		real numbers, integers and floating point numbers [NUMBER, BINARY_FLOAT, BINARY_DOUBLE => sql data types and PLS_INTEGER => pl/sql data type]
+		PLS_INTEGER => pl/sql data type (32 bit integer)
+
+		NUMBER => s/w arithmatic
+		PLS_INTEGER => h/w arithmatic, faster compared to NUMBER
+			- NATURAL (nonnegative) , NATIRALN (nonnegative with NOT NULL CONSTRAINT), POSITIVE (positive), POSITIVEN (positive with NOT NULL CONSTRAINT), SIGNTYPE (-1,0,1), SIMPLE_INTEGER (PLS_INTEGER with NOT NULL CONSTRAINT)
+
+	Boolean: TRUE, FALSE, NULL.
+	used in case of IF..THEN, CASE, LOOP, FOR LOOP, WHILE LOOP control flow structure
+	should not/can't:
+	 - assign a boolean value to a table column
+	 - select the value from a table column into a boolean value
+	 - use a boolean in a SQL function
+	 - use boolean expression in SQL statement
+	 - use boolean value in DBMS_OUTPUT.put_line() and DBMS_OUTPUT.put()
+
+
+	character:
+	alphanumeric text.
+	sql data types that are used in PL/SQL: char, varchar2, long, raw, long raw, rowid, urowid
+	char(n): fixed-length character data type (1-32767 bytes)
+	varchar2(n): varying length character data (1-32767 bytes)
+
+	datetime:
+	date, timestamp, .....
+	
+	DATA TYPE		SYNONYMS
+	NUMBER  => DEC, DECIMAL, DOUBLE PRECISION, FLOAT, INTEGER, INT, NUMERIC, REAL, SMALLINT
+	CHAR 	=> CHARACTER, STRING
+	VARCHAR2 => VARCHAR
+
+
+
+	
