@@ -1,0 +1,35 @@
+SET SERVEROUTPUT ON;
+/*
+DECLARE
+    l_product_name products.product_name%TYPE;
+BEGIN
+  SELECT product_name INTO l_product_name
+  FROM products
+  WHERE product_id=1;
+  dbms_output.put_line(l_product_name);
+END;
+*/
+/*
+DECLARE
+    l_product products%ROWTYPE;
+BEGIN
+  SELECT * INTO l_product
+  FROM products
+  WHERE product_id=1;
+  dbms_output.put_line(l_product.product_name || ', '||l_product.price || ', ' ||l_product.description);
+END;
+*/
+
+DECLARE
+    l_product_name products.product_name%TYPE;
+    l_product_price products.price%TYPE;
+    l_product_desc products.description%TYPE;
+BEGIN
+  SELECT product_name, price, description
+  INTO l_product_name, l_product_price, l_product_desc
+  FROM products
+  WHERE product_id=1;
+  dbms_output.put_line(l_product_name || ', '||l_product_price || ', ' ||l_product_desc);
+END;
+
+

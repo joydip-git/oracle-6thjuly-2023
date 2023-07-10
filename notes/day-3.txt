@@ -178,6 +178,40 @@ d. Nested IF:
 	index value can't be changed. it is initially set to lower-bound and loop execution starts. next time onwards, the index value is compared with upper_bound and if the condition is true, index value is incremented by 1. when the index value becomes greater than upper_bound, the loop exits.
 	lower_bound and upper_bound => evaluated even before the loop execution starts (ONLY ONCE), they are of type PLS_INTEGER (temporary). if yoiu change the values of lower_bound and upper_bound in the loop statments, they will not effective.
 
+	e. WHILE loop:
+	WHILE condition
+	LOOP
+		statements;
+	END LOOP;
+
+	f. CONTINUE statement:
+	CONTINUE WHEN condition;
+	=> IF condition THEN
+		CONTINUE;
+
+	SELECT-INTO:
+	a. column-level
+	declare
+		l_var_name table_name.column_name%TYPE;
+	begin
+		select column_name into l_var_name from table_name where table_pk_value = value;
+	end;
+	
+	b. record-level:
+	b.i. table-based record
+	declare
+		l_record_name table_name%ROWTYPE;
+	begin
+		select * into l_record_name from table_name where table_pk_value = value;
+	end;
+	%ROWTYPE => attribute
+
+	b.ii. cursor-based record:
+
+	b.iii. user-defined record:
+	
+	
+
 
 
 

@@ -1,0 +1,11 @@
+SET SERVEROUTPUT ON;
+DECLARE
+    v_counter number :=1;
+BEGIN
+    WHILE v_counter <=5
+    LOOP
+        DBMS_OUTPUT.PUT_LINE('Counter: '|| v_counter);
+        v_counter := v_counter +1;
+        --EXIT WHEN v_counter = 3;
+    END LOOP;
+END;
