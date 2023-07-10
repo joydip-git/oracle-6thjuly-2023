@@ -1,0 +1,8 @@
+SET SERVEROUTPUT ON;
+BEGIN   
+    
+    GOTO first_message;
+    
+    <<first_message>>
+    DBMS_OUTPUT.PUT_LINE('first label');    
+END;

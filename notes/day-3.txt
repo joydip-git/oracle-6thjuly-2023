@@ -127,6 +127,59 @@ d. Nested IF:
 		else_statements;
 	END IF;
 
+	b. CASE statement:
+		- simple CASE: when you want to execute a sequence of statements based on the result of single expression
+		- searched CASE: when you want to execute a sequence of statements based on the results of multiple boolean expressions
+
+	CASE selector
+	WHEN SELECTOR_VALUE_1 THEN
+		STATEMENT_1
+	WHEN SELECTOR_VALUE_2 THEN
+		STATEMENT_2
+	..........................
+	ELSE
+		ELSE_STATEMENT
+	END CASE;
+
+	If none of the selector_values match CASE_NOT_FOUND exception
+
+	c. GOTO statement:
+	GOTO label_name;
+
+	<<label_name>>
+	Note:
+	**: GOTO should not be used to transfer control to IF, CASE or LOOP statements
+	**: GOTO should not be used to transfer control from one clause to another in the IF
+		from one IF clause to ELSIF or ELSE
+		from one WHEN to aniother WHEN in the CASE statement
+	**: GOTO should not be used to transfer control out of a subprogram (stored procedure, function, trigger etc.) or into an exception handler
+	**: GOTO should not be used to transfer control from exception section back to current block.
+	
+
+	d. LOOP statement:
+	<<label>> LOOP
+		statements;
+	END LOOP loop_label;
+
+	use EXIT or EXIT WHEN to terminate the loop
+
+	LOOP
+		IF condition THEN
+			EXIT;
+		END IF;
+	END IF;
+
+	d.i. FOR loop:
+	FOR index IN lower_bound .. upper_bound
+	LOOP
+		statements;
+	END LOOP;
+
+	index value can't be changed. it is initially set to lower-bound and loop execution starts. next time onwards, the index value is compared with upper_bound and if the condition is true, index value is incremented by 1. when the index value becomes greater than upper_bound, the loop exits.
+	lower_bound and upper_bound => evaluated even before the loop execution starts (ONLY ONCE), they are of type PLS_INTEGER (temporary). if yoiu change the values of lower_bound and upper_bound in the loop statments, they will not effective.
+
+
+
 
 
 	

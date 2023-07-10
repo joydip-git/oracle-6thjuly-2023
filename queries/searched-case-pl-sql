@@ -1,0 +1,25 @@
+SET SERVEROUTPUT ON;
+DECLARE
+    v_sales number;
+    v_commission number;
+BEGIN
+    v_sales := 150000;
+    --GOTO my_label;
+    
+    CASE
+    WHEN v_sales > 200000 THEN
+     v_commission := 0.2;
+    WHEN v_sales >= 100000 and v_sales < 200000 THEN
+     v_commission := 0.15;
+    WHEN v_sales>=50000 and v_sales < 100000 THEN
+     v_commission := 0.1;
+     --GOTO my_label;
+    WHEN v_sales>=25000 and v_sales < 50000 THEN   
+     --<<my_label>>
+     v_commission := 0.05;
+    ELSE
+      v_commission := 0;
+    END CASE;
+    
+    DBMS_OUTPUT.PUT_LINE(v_commission);
+END;

@@ -1,0 +1,28 @@
+SET SERVEROUTPUT ON;
+DECLARE
+    l_i_index number := 0;
+    l_j_index number := 0;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('outer loop counter'||l_i_index);
+    DBMS_OUTPUT.PUT_LINE('inner loop counter'||l_j_index);
+    
+    <<outer_loop>>
+    LOOP
+    
+        EXIT WHEN l_i_index>=2;
+        DBMS_OUTPUT.PUT_LINE('outer loop counter'||l_i_index);
+        l_i_index := l_i_index+1;
+        
+        l_j_index :=0;
+        
+        <<inner_loop>> LOOP
+            EXIT WHEN l_j_index>=3;
+            DBMS_OUTPUT.PUT_LINE('inner loop counter'||l_j_index);
+            l_j_index := l_j_index+1;
+        END LOOP inner_loop;
+        
+    END LOOP outer;
+    
+    DBMS_OUTPUT.PUT_LINE('outer loop counter'||l_i_index);
+    DBMS_OUTPUT.PUT_LINE('inner loop counter'||l_j_index);
+END;

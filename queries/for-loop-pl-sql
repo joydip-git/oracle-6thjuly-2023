@@ -1,0 +1,37 @@
+SET SERVEROUTPUT ON;
+<<outer>> 
+DECLARE
+    l_step PLS_INTEGER :=2;
+    l_counter PLS_INTEGER := 100; 
+    --l_temp PLS_INTEGER :=0;
+    
+BEGIN     
+    FOR l_counter IN 1..5       
+    LOOP  
+        --l_temp := (l_counter*l_step) + outer.l_counter;
+        --DBMS_OUTPUT.PUT_LINE(l_temp);
+        DBMS_OUTPUT.PUT_LINE((l_counter*l_step) + outer.l_counter);
+    END LOOP;
+    
+    DBMS_OUTPUT.PUT_LINE(l_counter);    
+END;
+
+/*
+SET SERVEROUTPUT ON;
+<<outer>> 
+DECLARE
+    l_step PLS_INTEGER :=2;
+    l_counter PLS_INTEGER := 100; 
+    --l_temp PLS_INTEGER :=0;
+    
+BEGIN     
+    FOR l_counter IN REVERSE 1..5       
+    LOOP  
+        --l_temp := (l_counter*l_step) + outer.l_counter;
+        --DBMS_OUTPUT.PUT_LINE(l_temp);
+        DBMS_OUTPUT.PUT_LINE((l_counter*l_step) + outer.l_counter);
+    END LOOP;
+    
+    DBMS_OUTPUT.PUT_LINE(l_counter);    
+END;
+*/
