@@ -1,7 +1,17 @@
 --create or replace view customer_credits as
 --select name, credit_limit from customers;
 --
---select * from customer_credits;
+select * from customer_credits order by name;
+
+select * from customers;
+
+--customer_credits is NOT a read-only view: you can do insert, update and delete operation against the original table through this view
+update customer_credits set name = 'Adventureworks' where name='adventureworks';
+insert into customer_credits(name,credit_limit) values('adventureworks',3000);
+delete from customer_credits where name='Adventureworks';
+
+--Insert into CUSTOMERS (NAME,ADDRESS,CREDIT_LIMIT,WEBSITE) values ('abcd',NULL,3000,NULL);
+--update customers set credit_limit=2500 where customer_id = (select customer_id from customers where name='Comcast')
 
 create or replace view customer_sales as
 select 
@@ -21,3 +31,21 @@ select
         extract(
             YEAR from order_date
         );
+
+select * from customer_sales;
+
+--read-only view
+create or replace view customers_view as
+select customer_id, name, credit_limit 
+from customers with read only;
+
+select * from customers_view order by customer_id;
+--cannot perform a DML operation on a read-only view
+--insert into customers_view(name,credit_limit) values('Adventureworks',3000);
+
+--subquery block naming: WITH clause
+--create or replace view view_name as
+--with temporaryTable (averageValue) as 
+--(select avg(attr1) from Table) 
+--select attr1 from Table, temporaryTable where Table.attr1>temporaryTable.averageValue
+

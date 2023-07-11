@@ -1,0 +1,30 @@
+SET SERVEROUTPUT ON;
+DECLARE
+    l_cust_name customers.name%TYPE;
+    l_cust_credit_limit customers.credit_limit%TYPE;
+    CURSOR c_customer IS 
+    select name, credit_limit from customers where customer_id=100;
+BEGIN
+    OPEN c_customer;
+    FETCH c_customer INTO l_cust_name, l_cust_credit_limit;
+    DBMS_OUTPUT.put_line('name: '||l_cust_name||', credit limit: '||l_cust_credit_limit);
+    CLOSE c_customer;
+END;
+
+SET SERVEROUTPUT ON;
+DECLARE
+    l_cust_name customers.name%TYPE;
+    l_cust_credit_limit customers.credit_limit%TYPE;
+    CURSOR c_customer IS 
+    select name, credit_limit from customers;
+BEGIN
+    OPEN c_customer;
+    DBMS_OUTPUT.put_line('no of records '||c_customer%rowcount);
+    LOOP
+        FETCH c_customer INTO l_cust_name, l_cust_credit_limit;
+            EXIT WHEN c_customer%notfound;
+            DBMS_OUTPUT.put_line('record# '||c_customer%rowcount);
+            DBMS_OUTPUT.put_line('name: '||l_cust_name||', credit limit: '||l_cust_credit_limit);
+    END LOOP;
+    CLOSE c_customer;
+END;

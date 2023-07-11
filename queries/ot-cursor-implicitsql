@@ -1,0 +1,12 @@
+SET SERVEROUTPUT ON;
+DECLARE
+ l_total_rows number(2);
+BEGIN
+    UPDATE customers set credit_limit= credit_limit+500 where customer_id=721;
+    IF SQL%notfound THEN
+        DBMS_OUTPUT.put_line('no customers selected');
+    ELSIF SQL%found THEN
+        l_total_rows := sql%rowcount;
+        DBMS_OUTPUT.put_line('rows affected: '|| l_total_rows);
+    END IF;
+END;

@@ -23,4 +23,18 @@ Join query: combine rows from two or more tables, views
 Views:
 	way of giving name to a query and saving the same in database
 	sometimes known as named query
-	it is loke a virtual table, whose data is the result of a stored query
+	it is like a virtual table, whose data is the result of a stored query
+	update and drop the view:
+        
+	delete a view: DROP VIEW view-name;
+
+
+Cursors: a pointer (reference) to the context area of an SQL statement.
+	 context area: a memory region which is created by Oracle in the SGA for an SQL statement, to store information required to process the statement.
+	 since cursor is a pointer to the context area, which itself stores the result set of the query, hence the cursor can hold those set of rows, known as active set.
+
+	 types:
+	 a. implicit  and b. explicit
+
+	
+	
