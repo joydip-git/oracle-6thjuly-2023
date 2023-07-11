@@ -4,10 +4,7 @@
    c. where clause can't contain any aggregate function. Having clause can contain aggregate function.
    d. where clause can be used with select, update and delete statements. Having clause is used only with select statement.
 
-2. IN and BETWEEN keywords
-3. joins - different types
-
-4. PL/SQL:
+2. PL/SQL:
 	Procedural Language extensions for the Structured Query Language (PL/SQL).
 	SQL: It's a database language both for querying and updating data in the RDBMS.
 	PL/SQL adds many programming constructs to the SQL. It helps to overcome the limitations of SQL. It is very well readable.

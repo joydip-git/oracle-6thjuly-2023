@@ -1,0 +1,4 @@
+1. IN and BETWEEN keywords
+2. joins - different types
+3. views
+4. cursors
