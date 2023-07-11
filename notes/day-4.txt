@@ -2,3 +2,25 @@
 2. joins - different types
 3. views
 4. cursors
+
+Join query: combine rows from two or more tables, views
+	types of Joins:
+	 - Inner join or simple join
+	 - Outer join
+		- left outer join (left join)
+		- right outer join (right join)
+		- full outer join (full join)
+	- Equi join
+	- Self join
+	- Cross join
+	- Antijoin
+	- semijoin
+
+	Inner join:
+	select column_names from table1 inner join table2 on table1.column_name = table2.column_name;
+
+
+Views:
+	way of giving name to a query and saving the same in database
+	sometimes known as named query
+	it is loke a virtual table, whose data is the result of a stored query

@@ -1,0 +1,23 @@
+--create or replace view customer_credits as
+--select name, credit_limit from customers;
+--
+--select * from customer_credits;
+
+create or replace view customer_sales as
+select 
+    customers.name as customer,
+    sum(order_items.quantity * order_items.unit_price) sales_amount,
+    extract(
+        YEAR 
+        from 
+            orders.order_date
+    ) YEAR
+    FROM orders
+    inner join order_items using(order_id)
+    inner join customers using (customer_id)
+    where status = 'Shipped'
+    group by   
+        name,
+        extract(
+            YEAR from order_date
+        );

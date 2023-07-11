@@ -1,0 +1,59 @@
+--inner join (simple join)
+select cust.name, con.first_name, con.last_name
+from customers cust 
+inner join contacts con
+on cust.customer_id = con.customer_id;
+
+--right outer join
+select cust.name, con.first_name, con.last_name
+from customers cust 
+right outer join contacts con
+on cust.customer_id = con.customer_id;
+
+select cust.name, con.first_name, con.last_name
+from contacts con 
+right outer join customers cust
+on con.customer_id = cust.customer_id;
+
+--select * from customers where name='abcd';
+--select first_name from contacts where customer_id=320;
+--
+--Insert into OT.CUSTOMERS (NAME,ADDRESS,CREDIT_LIMIT,WEBSITE) values ('abcd','2904 S Salina St, Syracuse, NY',5000,'http://www.unitedcontinentalholdings.com');
+
+--left outer join
+select cust.name, NVL(con.first_name,'NA'), NVL(con.last_name,'NA')
+from customers cust 
+left outer join contacts con
+on cust.customer_id = con.customer_id;
+
+select cust.name, con.first_name, con.last_name
+from customers cust 
+left outer join contacts con
+on cust.customer_id = con.customer_id
+where con.first_name IS NULL;
+
+select cust.name, con.first_name, con.last_name
+from customers cust 
+left outer join contacts con
+on cust.customer_id = con.customer_id
+where con.first_name IS NOT NULL;
+
+--full outer join
+select cust.name, con.first_name, con.last_name
+from customers cust 
+full outer join contacts con
+on cust.customer_id = con.customer_id;
+
+--equi join
+select cust.name, con.first_name, con.last_name
+from customers cust, contacts con
+where cust.customer_id = con.customer_id;
+
+--alternate equi join
+select customers.name, contacts.first_name, contacts.last_name
+from customers join contacts on customers.customer_id=contacts.customer_id;
+
+
+select * from employees order by employee_id;
+--self join (where trying to find out all the employees from employees table with their managers from the same employees table)
+select e1.first_name employee_name, e2.first_name manager_name from employees e1, employees e2 where e1.manager_id = e2.employee_id order by e1.first_name;
