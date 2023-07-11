@@ -28,3 +28,36 @@ BEGIN
     END LOOP;
     CLOSE c_customer;
 END;
+
+create or replace view cust_contact_info as
+select cust.name, con.first_name, con.last_name
+    from customers cust 
+    left outer join contacts con
+    on cust.customer_id = con.customer_id;
+
+SET SERVEROUTPUT ON;
+DECLARE
+    l_cust_name customers.name%TYPE;
+    l_con_fname contacts.first_name%TYPE;
+    l_con_lname l_con_fname%TYPE;
+    CURSOR c_customer IS 
+    select name, first_name, last_name from cust_contact_info;
+--    select cust.name, con.first_name, con.last_name
+--    from customers cust 
+--    left outer join contacts con
+--    on cust.customer_id = con.customer_id;
+BEGIN
+    OPEN c_customer;
+    DBMS_OUTPUT.put_line('no of records '||c_customer%rowcount);
+    LOOP
+        FETCH c_customer INTO l_cust_name, l_con_fname, l_con_lname;
+            EXIT WHEN c_customer%notfound;
+            DBMS_OUTPUT.put_line('record# '||c_customer%rowcount);
+            IF l_con_fname is null and l_con_lname IS NULL THEN
+                DBMS_OUTPUT.put_line('name: '||l_cust_name||', Full name: NA');
+            ELSE 
+                DBMS_OUTPUT.put_line('name: '||l_cust_name||', Full name: '||(l_con_fname || '' || l_con_lname));
+            END IF;
+    END LOOP;
+    CLOSE c_customer;
+END;

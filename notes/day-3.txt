@@ -201,9 +201,22 @@ d. Nested IF:
 	begin
 		select * into l_record_name from table_name where table_pk_value = value;
 	end;
+	
 	%ROWTYPE => attribute
 
 	b.ii. cursor-based record:
+	declare
+		cursor cursor-name is
+		select * from table_name;
+		l_record_name cursor_name%ROWTYPE;
+	begin
+		open cursor-name;
+		loop
+		fetch cursor-name into l_record_name;
+		//operations
+		end loop;
+		close cursor-name;
+	end;
 
 	b.iii. user-defined record:
 	

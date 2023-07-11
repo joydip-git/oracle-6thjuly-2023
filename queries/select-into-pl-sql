@@ -9,6 +9,7 @@ BEGIN
   dbms_output.put_line(l_product_name);
 END;
 */
+--TABLE BASED RECORD
 /*
 DECLARE
     l_product products%ROWTYPE;

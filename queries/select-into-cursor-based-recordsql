@@ -1,0 +1,18 @@
+SET SERVEROUTPUT ON;
+DECLARE
+    CURSOR c_contacts IS
+    SELECT FIRST_NAME, LAST_NAME, PHONE FROM CONTACTS order by first_name;
+    r_contact c_contacts%ROWTYPE;
+BEGIN
+    OPEN c_contacts;
+    
+    LOOP
+    FETCH c_contacts into r_contact;
+    EXIT WHEN c_contacts%notfound;
+    
+    DBMS_OUTPUT.put_line((r_contact.first_name||' '||r_contact.last_name)||', '||r_contact.phone);
+    
+    END LOOP;
+    
+    CLOSE c_contacts;
+END;
