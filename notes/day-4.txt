@@ -36,5 +36,8 @@ Cursors: a pointer (reference) to the context area of an SQL statement.
 	 types:
 	 a. implicit  and b. explicit
 
+	 SQL Cursor: sql
+	 attributes=> found, notfound, isopen, rowcount
+
 	
 	
