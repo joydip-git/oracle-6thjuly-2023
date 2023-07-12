@@ -1,3 +1,4 @@
+----cursor with column-level
 SET SERVEROUTPUT ON;
 DECLARE
     l_cust_name customers.name%TYPE;
@@ -11,6 +12,7 @@ BEGIN
     CLOSE c_customer;
 END;
 
+--cursor with loop (column-level)
 SET SERVEROUTPUT ON;
 DECLARE
     l_cust_name customers.name%TYPE;
@@ -29,6 +31,8 @@ BEGIN
     CLOSE c_customer;
 END;
 
+
+--cursor with view
 create or replace view cust_contact_info as
 select cust.name, con.first_name, con.last_name
     from customers cust 
@@ -61,3 +65,78 @@ BEGIN
     END LOOP;
     CLOSE c_customer;
 END;
+
+--cursor with loop and record type
+SET SERVEROUTPUT ON;
+DECLARE 
+CURSOR c_product IS
+SELECT product_name, list_price
+FROM products
+ORDER BY
+list_price DESC;
+l_product c_product%ROWTYPE;
+BEGIN
+    OPEN c_product;
+    
+    LOOP
+       FETCH c_product INTO l_product;
+       EXIT WHEN c_product%notfound;
+       DBMS_OUTPUT.put_line(l_product.product_name||', '||l_product.list_price);
+    END LOOP;
+    CLOSE c_product;
+END;
+
+--cursor with for loop (record-based)
+SET SERVEROUTPUT ON;
+DECLARE 
+CURSOR c_product IS
+SELECT product_name, list_price
+FROM products
+ORDER BY
+list_price DESC;
+BEGIN
+        
+    FOR l_product IN c_product
+    LOOP
+        DBMS_OUTPUT.put_line(l_product.product_name||', '||l_product.list_price);
+    END LOOP;    
+    
+END;
+
+--cursor accepting parameter
+SET SERVEROUTPUT ON;
+DECLARE 
+--CURSOR c_product(low_price NUMBER, high_price NUMBER) IS
+CURSOR c_product(low_price NUMBER :=0, high_price NUMBER :=100) IS
+SELECT product_name, list_price
+FROM products
+where list_price between low_price and high_price
+ORDER BY
+list_price DESC;
+l_product c_product%ROWTYPE;
+BEGIN
+    --OPEN c_product(50,100);
+    OPEN c_product;
+    DBMS_OUTPUT.put_line('Mass products');
+    LOOP
+        FETCH c_product into l_product;
+        EXIT WHEN c_product%notfound;
+        DBMS_OUTPUT.put_line(l_product.product_name||', '||l_product.list_price);
+    END LOOP;    
+    CLOSE c_product;
+    
+    DBMS_OUTPUT.put_line('Luxury products');
+    OPEN c_product(800,1000);
+    
+    LOOP
+        FETCH c_product into l_product;
+        EXIT WHEN c_product%notfound;
+        DBMS_OUTPUT.put_line(l_product.product_name||', '||l_product.list_price);
+    END LOOP;    
+    CLOSE c_product;
+    
+END;
+
+
+
+

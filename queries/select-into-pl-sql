@@ -1,5 +1,6 @@
 SET SERVEROUTPUT ON;
 /*
+--column level record
 DECLARE
     l_product_name products.product_name%TYPE;
 BEGIN

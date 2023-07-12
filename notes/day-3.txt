@@ -218,7 +218,43 @@ d. Nested IF:
 		close cursor-name;
 	end;
 
-	b.iii. user-defined record:
+	b.iii. user-defined/programmer-defined record:
+	declare
+		TYPE r_table_row
+		IS
+			RECORD
+			(
+				first_column_prop table_name.col_1%TYPE,
+				second_column_prop table_name.col_2%TYPE,
+				third_column_prop table_name%TYPE,
+			);
+		l_record r_table_row;
+		cursor c_record is
+		select col_1, col_2, col_3 from table_name where table_pk = value;
+	begin
+		--select col_1, col_2, col_3 into l_record from table_name where table_pk = value;
+		open c_record;
+		loop
+			fetch c_record into l_record;
+			exit when c_record%notfound;
+			dbms_output.put_line(l_record.first_column_prop);
+		end loop;
+		close c_record;
+	end;
+
+
+	class A { string first; int second; float third;}
+	A obj;
+
+
+
+
+	
+cursor with parameter:
+cursor c (start_id NUMBER, end_id NUMBER) is
+select * from products where product_id between start_id and end_id
+
+OPEN c(1,100);
 	
 	
 
