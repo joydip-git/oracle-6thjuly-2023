@@ -1,0 +1,37 @@
+create or replace procedure get_customers_by_credit_limit(credit_limit_value number) 
+    as
+c_customers SYS_REFCURSOR;
+
+begin
+    open c_customers for
+        select customer_id, credit_limit, name from customers
+        where credit_limit > credit_limit_value
+        order by credit_limit; --sql%rowcount, sql%notfound
+        
+        dbms_sql.return_result(c_customers);
+end;
+
+exec get_customers_by_credit_limit(4500);
+
+--create or replace procedure get_customers(credit_limit_value number, page_no number, page_size number) 
+create or replace procedure get_customers(credit_limit_value number) 
+    as
+c_customers SYS_REFCURSOR;
+c_total_row SYS_REFCURSOR;
+
+begin
+    open c_total_row for
+        select count(*) RECORDS from customers;
+        dbms_sql.return_result(c_total_row);
+        
+    open c_customers for
+        select customer_id, credit_limit, name from customers
+        where credit_limit > credit_limit_value
+        order by credit_limit;
+        --offset page_size* (page_no-1) ROWS
+        --FETCH NEXT page_size ROWS ONLY;
+        
+        dbms_sql.return_result(c_customers);
+end;
+
+exec get_customers(4500);

@@ -255,11 +255,4 @@ cursor c (start_id NUMBER, end_id NUMBER) is
 select * from products where product_id between start_id and end_id
 
 OPEN c(1,100);
-	
-	
 
-
-
-
-
-	

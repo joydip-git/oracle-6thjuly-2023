@@ -1,0 +1,20 @@
+--create or replace function get_manager_details(
+--    manager_id_param IN employees.manager_id%TYPE
+--) return SYS_REFCURSOR
+--as 
+--    c_manager_data SYS_REFCURSOR;
+
+--create or replace procedure get_customers_by_credit_limit(credit_limit_value number) 
+--    as
+--c_customers SYS_REFCURSOR;
+
+
+--create or replace procedure add_values(x in number, y in number, res out number)
+--create or replace function add_values(x number, y number) return x+y;
+
+--create or replace function sample
+--
+--begin
+--insert into table_name values(....);
+--end;
+

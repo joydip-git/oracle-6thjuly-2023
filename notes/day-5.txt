@@ -55,6 +55,20 @@ this is used to create a cusror variable which is not tied up to any particular 
 explicit or implcit type cursors are always associated with/tied up with a query.
 
 
+sp vs function:
+1. sp can have any DML queries but function can have only select query (ie. transaction can't be written inside function, but only inside sp)
+2. you can't call sp from a function, but you can call any function from a sp
+3. functions can be called from select query, but sp can't be called from a select query
+4. sp has no return type, function has return type
+5. to return value from sp, use OUT parameter or cursor for result set, to reurn value from a function you don't need any out parameter (simply retun by using return statement) or a cusror for result set
+
+
+
+select count(*) from products
+
+
+select * from getStatistics()
+
 
 
 

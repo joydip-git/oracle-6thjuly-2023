@@ -1,0 +1,39 @@
+create or replace function get_manager_details(
+    manager_id_param IN employees.manager_id%TYPE
+) return SYS_REFCURSOR
+as 
+    c_manager_data SYS_REFCURSOR;
+begin
+open c_manager_data for 
+    select employee_id, first_name, last_name, email 
+    from employees 
+    where manager_id = manager_id_param 
+    order by first_name, last_name;
+    
+    return c_manager_data;
+end;
+
+
+set serveroutput on;
+declare 
+c_manager_cursor SYS_REFCURSOR;
+--c_manager_cursor is ref cursor returns employees%ROWRTYPE;
+--l_record c_manager_cursor%ROWTYPE;
+l_first_name employees.first_name%TYPE;
+l_last_name employees.last_name%TYPE;
+l_id employees.employee_id%TYPE;
+l_email employees.email%TYPE;
+begin
+    c_manager_cursor := get_manager_details(46);    
+    
+    loop
+        fetch c_manager_cursor 
+        into l_id, l_first_name, l_last_name, l_email;
+        exit when c_manager_cursor%notfound;
+        dbms_output.put_line(l_first_name||', '||l_last_name||','|| l_id||','||l_email);
+    end loop;   
+    
+    close c_manager_cursor;
+end;
+
+--select * from employees order by employee_id;

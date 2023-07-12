@@ -1,3 +1,4 @@
+
 1. IN and BETWEEN keywords
 2. joins - different types
 3. views
@@ -40,4 +41,11 @@ Cursors: a pointer (reference) to the context area of an SQL statement.
 	 attributes=> found, notfound, isopen, rowcount
 
 	
+	
+	
+
+
+
+
+
 	

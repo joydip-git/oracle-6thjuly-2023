@@ -1,0 +1,19 @@
+create or replace function add_values(first number, second number)
+return number
+is
+l_result number :=0;
+begin
+    l_result := first+ second;
+    return l_result;
+end;
+
+set serveroutput on;
+declare
+
+l_first number :=10;
+l_second number :=20;
+v_result number :=0;
+begin
+    v_result := add_values(second => l_second, first=>l_first);
+    dbms_output.put_line(v_result);
+end;
