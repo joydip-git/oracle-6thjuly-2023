@@ -69,6 +69,12 @@ select count(*) from products
 
 select * from getStatistics()
 
+triggers:
+--before|after|instead of => when the trigger will be executed
+-- insert|delete|update => the DML operation
+-- of col_name => col_name to be updated
+-- on table_name => name of the table linked with the trigger
+
 
 
 

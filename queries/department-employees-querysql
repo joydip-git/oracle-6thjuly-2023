@@ -1,0 +1,33 @@
+create table departments(
+dept_id number primary key not null,
+dept_name varchar2(10) not null
+);
+alter table departments
+add emp_count number default(0);
+
+create table employee_records(
+emp_id number primary key not null,
+emp_name varchar2(50) not null,
+emp_salary number default(0),
+dept_id number references departments(dept_id) on delete cascade
+)
+
+insert into departments values(1,'HR');
+insert into departments values(2,'TRNG');
+insert into employee_records values(1,'anil',1000,1);
+insert into employee_records values(2,'sunil',2000,2);
+
+select * from departments;
+select * from employee_records;
+
+update departments set emp_count =1;
+
+insert into employee_records values(5,'aditya',4000,2);
+
+update departments set emp_count = emp_count+1 where dept_id=1;
+
+insert into employee_records values(6,'durgesh',5000,1);
+insert into employee_records values(7,'geetansh',6000,2);
+
+update employee_records set dept_id=2 where emp_id=6;
+

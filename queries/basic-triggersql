@@ -1,0 +1,7 @@
+create or replace trigger update_employee_count
+after insert on employee_records
+for each row
+begin
+    update departments set emp_count = emp_count+1 where dept_id=:NEW.dept_id;
+end;
+
