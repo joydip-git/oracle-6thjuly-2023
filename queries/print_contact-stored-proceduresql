@@ -1,0 +1,12 @@
+create or replace procedure print_contact(
+p_customer_id NUMBER
+)
+is
+    r_contact contacts%ROWTYPE;
+begin
+    select * into r_contact from contacts where customer_id= p_customer_id;
+    DBMS_OUTPUT.put_line(r_contact.first_name || ' '|| r_contact.last_name);
+end;
+
+--set serveroutput on;
+execute print_contact(1);

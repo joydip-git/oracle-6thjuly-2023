@@ -1,0 +1,61 @@
+anonymous block:
+
+<<outer>>
+declare
+ l_x number;
+begin
+	for l_x in 1..10
+	loop
+		outer.l_x + l_x
+	end loop;
+end;
+
+named PL/SQL block => subprograms
+stored procedure
+trigger
+user defined function
+
+functions - built-in (max(), min(), avg(), nvl()) and user-defined
+
+1. stored procedure:
+
+create view view_name is
+select * from products;
+
+create [or replace] procedure procedure_name ([parameter_list])
+is
+ [declaration statement]
+begin
+	
+	[execution statement]
+	exception
+	[exception-handler]
+end [procedure_name];
+
+create [or replace] procedure procedure_name (IN param1 data-type, OUT param2 data-type, INOUT param3 data-type)
+is
+ [declaration statement]
+begin
+	[execution statement]
+	exception
+	[exception-handler]
+end [procedure_name];
+
+
+execute procedure_name(10, 20,....);
+
+replace 
+
+removing sp: drop procedure procedure-name;
+
+cursor variable:
+it is a variable that references to a cursor
+
+this is used to create a cusror variable which is not tied up to any particular query
+explicit or implcit type cursors are always associated with/tied up with a query.
+
+
+
+
+
+

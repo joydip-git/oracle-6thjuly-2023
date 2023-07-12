@@ -1,0 +1,48 @@
+create or replace procedure get_customers_by_credit_limit(
+    credit_limit_value number, x out 
+)
+as 
+ c_customers SYS_REFCURSOR
+begin
+select customer_id, credit_limit, name from customers
+where credit_limit > credit_limit_value
+order by credit_limit;
+end;
+
+
+declare 
+ type product_row IS record( maxprice products.list_price%TYPE );
+ l_p_row product_row;
+ cursor c is select max(list_price) from products;
+ cursor c1 is select first_name, last_name from customers where customer_id=1;
+ l_c_row customers%ROWTYPE;
+ begin
+  open c;
+    fetch c into l_p_row;
+    
+  close c;
+  open c1;
+    fetch c1 into l_c_row;
+    dbms_output.put_line(l_c_row.first_name);
+  close c1;
+ end;
+ 
+ /*
+ --REF CURSOR (for a cursor variable) => a data type
+ 
+ -- strongly/strong typed cursor variable
+ declare 
+    type cursor_type_cust is ref cursor return customers%ROWTYPE;
+    cust1 cursor_type_cust;
+    cust1 = cursor c1 is select first_name, last_name from customers where customer_id=1;
+    
+-- weakly/strong typed cursor variable
+declare 
+    type cursor_type_cust is ref cursor;
+    cust1 cursor_type_cust;
+
+ -- weakly/strong typed cursor variable (from Oracle 9i)
+declare    
+    cust1 SYS_REFCURSOR; -- type SYS_REFCURSOR is ref cursor;
+*/
+ 

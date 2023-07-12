@@ -1,0 +1,13 @@
+create or replace procedure print_contact_cursor(
+p_customer_id NUMBER
+)
+is
+    cursor c_contact is
+    select * from contacts where customer_id= p_customer_id;    
+    r_contact c_contact%ROWTYPE;
+begin
+    open c_contact;
+    fetch c_contact into r_contact;
+    DBMS_OUTPUT.put_line(r_contact.first_name || ' '|| r_contact.last_name);    
+    close c_contact;    
+end;

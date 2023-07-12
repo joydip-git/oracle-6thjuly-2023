@@ -1,0 +1,13 @@
+execute print_contact(2);
+execute PRINT_CONTACT_CURSOR(3);
+
+--DECLARE
+--  P_CUSTOMER_ID NUMBER;
+--BEGIN
+--  P_CUSTOMER_ID := 6;
+--
+--  PRINT_CONTACT_CURSOR(
+--    P_CUSTOMER_ID => P_CUSTOMER_ID
+--  );
+----rollback; 
+--END;
