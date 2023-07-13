@@ -1,0 +1,12 @@
+create an application to create multiple instances of employee and calculate their salary
+
+1. create an employee class in a separate package with following 
+	state: name, id, basicpay, dapay, hrapay
+	behavior: a method to calculate salary which accepts no argument and returns the calculated total salary (ex. calculateSalary)
+	**: class should have getters and setters for all the data members
+
+2. create another class with main method in separate package
+	a. ask users, how many employee records to create
+	b. create that many employee objects (accept input from user about employee data)
+	c. create an array to store those employee objects
+	d. now, iterate through the array and pick up one employee object at a time and then calculate the salary of that employee and print the salary

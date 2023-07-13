@@ -88,7 +88,39 @@ variables:
 	int x = 10;
 	A obj = new A();
 
-primitive and non-primitive
+
+OOP:
+--------------------------------------------------------------------
+class, object, constructor, members => data and method, access specifiers
+types of members => static and instance
+inheritance
+polymorphism
+abdstract class
+interface
+
+object: real-time entity
+	state: data or value of the object
+	behavior: functionalities of the object
+	identity: unique value used by JVM to identify an object
+
+class: laptop
+	state: modelname, makeyear, serialno, color, size, price etc.
+	behavior: switchOn, shutdown, putsleep etc.
+
+modelname: dell xps, makeyear: 2022, serialno:abcd1234, color:grey, size:15, price:120000
+modelname: Apple Mackbook Pro, makeyear: 2023, serialno:abcd1235, color:white, size:13, price:150000
+
+static block:   initialize static data members of the class only once
+		it is executed ONLY ONE TIME, either during the first instance creation or if you access any static member of the class
+		you can't call it explicitly, it is invoked automatically by runtime
+		you can't write static block with any access specifier
+
+in a class instance members can access static members, but static members can't access any instance member
+
+
+
+
+
 
 
 
