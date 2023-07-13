@@ -1,0 +1,43 @@
+task:
+	invoke a calculation method based on user choice
+
+output:
+	----menu----
+	1. Add
+	2. Subtract
+	3. Multiply
+	4. Divide
+
+	Enter choice[1/2/3/4]: __
+	Enter 1st Value: ___
+	Enter 2nd Value: ___
+
+	Calling op_name
+	op_name Result: __
+
+	Would you like to continue[y/Y/n/N]: __
+		
+
+details:
+	create a java project: com.java.calculatorapp
+	1. create a class: Calculator in a package: com.java.calculatorapp.logic with 4 instance methods 
+		methods: all accepts two arguments: int and int and do the calculation and return calculation result (int)
+	2. create another class UserInterface in a package: com.java.calculatorapp.ui with main() method
+
+	from main() method call those 4 methods of Calculator class based on user choice
+	Note: 
+	1. you have to print a menu
+	2. you have to accept choice from user
+	3. you have to accept two values (int) from user
+	4. you have to call a particular method based on that choice
+	5. you have to print that return value of the method
+	6. you have to ask user whether to continue or not
+	7. based on the input either you will continue or exit
+
+	**: user might enter either uppercase or lowercase yes or no
+
+	
+
+
+
+	
