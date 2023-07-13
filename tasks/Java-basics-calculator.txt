@@ -35,6 +35,8 @@ details:
 	7. based on the input either you will continue or exit
 
 	**: user might enter either uppercase or lowercase yes or no
+	**: know about how to accept input from user
+	**: conversion of data from string to int etc.
 
 	
 
