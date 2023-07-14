@@ -2,9 +2,9 @@ package com.java.inheritance.entities;
 
 public class SavingsAccount extends Account {
 	private double minBalance;
-	
+
 	public SavingsAccount() {
-		super();		
+		super();
 	}
 
 	public SavingsAccount(int accountId, String accountHolderName, double accountBalance, double minBalance) {
@@ -18,5 +18,10 @@ public class SavingsAccount extends Account {
 
 	public void setMinBalance(double minBalance) {
 		this.minBalance = minBalance;
+	}
+
+	@Override
+	public String printAccountInfo() {
+		return super.printAccountInfo() + ", " + this.minBalance;
 	}
 }

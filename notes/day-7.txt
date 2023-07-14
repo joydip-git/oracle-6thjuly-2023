@@ -12,30 +12,52 @@ class IntArray{
 
 Other OOP concepts:
 inheritance
+	 - multiple inheritance of class
 
-savings bank account
-	acc_id, acc_name, acc_balance, min_balance
-	withdraw(), deposit(), 
+//not possible
+class B{ public void foo(){} public void foo1(){}}
+class C{ public void foo(){} public void foo2(){}}
 
-current account
-	acc_id, acc_name, acc_balance, overdraft_limit
-	withdraw(), deposit(), 
-
-class Account{
-	int accId;
-	String accName;
-	double accBalance;
-
-	withdraw(){}
-	depost(){}
+class A extends B, C{
+public void foo3(){}
 }
 
-class SavingsAccount extends Account{
-	double minBalance;
-}
+C obj = new A();
+obj.foo();
+a => b=> c
 
-class CurrentAccount extends Account{
-	double overdraftLimit;
-}
 
-SavingsAccount save = new SavingsAccount();
+S=> Single Responsibility
+O => Open close principle
+SOLID => 
+
+
+printer => laser and deskjet => homedeskjet and officedeskjet
+
+polymorphism:
+	compile time (overloading): 
+		method overloading, 
+		operator overloading
+	
+	runtime/dynamic (override): methods
+
+operators: operator overloading
+10 + 20 => 30
+"sunil" + "kumar" => sunil kumar
+
+String str1 = "sunil";
+String str2 = "Kumar";
+str1.concat(str2);
+
+override overwrite
+
+
+
+
+
+
+
+
+
+
+
