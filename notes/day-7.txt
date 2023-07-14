@@ -22,9 +22,22 @@ class A extends B, C{
 public void foo3(){}
 }
 
-C obj = new A();
+A obj = new A();
 obj.foo();
 a => b=> c
+
+interface B{ void foo(); void foo1();}
+interface C{ void foo(); void foo2();}
+
+class A implements B, C{
+	public void foo(){}
+	public void foo1(){}
+	public void foo2(){}
+	public void foo3(){}
+}
+
+A obj = new A();
+obj.foo();
 
 
 S=> Single Responsibility
@@ -110,6 +123,21 @@ child class inheriting from abstract base class:
 	you must implement (override) all abstract members of the base class here
 	if you don't, then the child class becomes abstract and you have to declare the class with abstract keyword
 
+interface:      collection of abstract methods and static data
+		here the memthods are by default abstract and public
+		here the static members are by default static and public as well as they have to be initialzed with a value which can't be altered in the implementing class. i.e. the static data are by default final in interface.
+		you can't create instance of an interface
+		you can't write
+			- explicit constructor
+			- non-abstract methods/getter-setters
+			- default constructor
+			- instance members
+
+child class implementing interface:
+		all abstract members are supposed to be implemented
+		if you don't, then the child class becomes abstract and you have to declare the class with abstract keyword and declare the method inside the class again with public and abstract keyword
+
+interface: 
 	
 
 

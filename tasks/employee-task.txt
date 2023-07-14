@@ -2,11 +2,20 @@ create an application to create multiple instances of employee and calculate the
 
 1. create an employee class in a separate package with following 
 	state: name, id, basicpay, dapay, hrapay
-	behavior: a method to calculate salary which accepts no argument and returns the calculated total salary (ex. calculateSalary)
+	behavior: a method to calculate salary which accepts no argument and returns the calculated total salary (ex. calculateSalary) [b+d+h]
 	**: class should have getters and setters for all the data members
 
-2. create another class with main method in separate package
+2. create now, another class, Developer in the same package, which will inherit from Employee and have it's own 
+	state: incentivePay
+	behvaior:a method to calculate salary which accepts no argument and returns the calculated total salary (ex. calculateSalary) [b+d+h+i]
+
+3. create now, another class, Hr in the same package, which will inherit from Employee and have it's own 
+	state: gratuityPay
+	behvaior:a method to calculate salary which accepts no argument and returns the calculated total salary (ex. calculateSalary) [b+d+h+g]
+
+4. create another class, UserInterface, with main method in separate package
 	a. ask users, how many employee records to create
 	b. create that many employee objects (accept input from user about employee data)
-	c. create an array to store those employee objects
-	d. now, iterate through the array and pick up one employee object at a time and then calculate the salary of that employee and print the salary
+		i. ask user about a choice - whether to create developer or to create hr (you will not create any instance of employee class directly) instance.
+	c. create an array to store those employee objects (developer and hr instances)
+	d. now, iterate through the array and pick up one employee (either developer or hr) object at a time and then calculate the salary of that employee and print the salary
