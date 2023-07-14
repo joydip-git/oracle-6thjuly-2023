@@ -137,7 +137,37 @@ child class implementing interface:
 		all abstract members are supposed to be implemented
 		if you don't, then the child class becomes abstract and you have to declare the class with abstract keyword and declare the method inside the class again with public and abstract keyword
 
-interface: 
+collections:
+	classes : ArrayList, Vector, LinkedList, PriorityQueue, HashSet, LinkedHashSet, TreeSet
+	interfaces: Set, List, Queue, DeQueue etc.
+int[] arr = new int[3];
+
+List<int> list = new ArrayList<int>();
+
+interface List<T>{
+	void add(T obj);
+}
+class ArrayList<T> implements List<T>{
+	private T[] arr = new T[4];
+	static int index = 0;
+	public void add(T obj){
+		if(index==arr.length){
+			T[] temp = new T[arr.length];
+			//copy all values from arr to temp
+			arr = new T[arr.length*2];
+			//copy all the values from temp back to new arr			
+		}
+		arr[index]obj;
+		index++;
+		
+	}
+}
+
+List<int> list = new ArrayList<int>();
+
+Map<K,V> map = 
+Functional Interface and Lambda Expression
+
 	
 
 
