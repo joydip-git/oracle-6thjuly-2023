@@ -1,6 +1,7 @@
 package com.java.inheritance.entities;
 
-public class CurrentAccount extends Account {
+//this class can't be inherited
+public final class CurrentAccount extends Account {
 	private double ovredraftLimit;
 
 	// public Account() {}
@@ -29,9 +30,9 @@ public class CurrentAccount extends Account {
 	public void setOvredraftLimit(double ovredraftLimit) {
 		this.ovredraftLimit = ovredraftLimit;
 	}
-
+	
 	@Override
 	public String printAccountInfo() {
-		return super.printAccountInfo() + ", " +this.ovredraftLimit;
+		return super.printAccountInfo() + ", " + this.ovredraftLimit;
 	}
 }

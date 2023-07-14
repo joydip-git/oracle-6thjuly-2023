@@ -41,18 +41,36 @@ public class UserInterface {
 		default:
 			break;
 		}
-		
-		System.out.println(accountInstanceRef.printAccountInfo());
-		
-		/*if(accountInstanceRef instanceof CurrentAccount) {
+
+		// System.out.println(accountInstanceRef.printAccountInfo());
+		Print(accountInstanceRef);
+
+		if (accountInstanceRef instanceof CurrentAccount) {
 			CurrentAccount currentAcc = (CurrentAccount) accountInstanceRef;
-			System.out.println(currentAcc.printCurrentAccountInfo());
+			// System.out.println(currentAcc.printCurrentAccountInfo());
+			Print(currentAcc);
 		}
-		if(accountInstanceRef instanceof SavingsAccount) {
+		if (accountInstanceRef instanceof SavingsAccount) {
 			SavingsAccount savingsAcc = (SavingsAccount) accountInstanceRef;
-			System.out.println(savingsAcc.printSavingsAccountInfo());
-		}*/
+			// System.out.println(savingsAcc.printSavingsAccountInfo());
+			Print(savingsAcc);
+		}
 		sc.close();
+
+		// variable
+		final int y = 20;
+		System.out.println(y);
 	}
 
+	static void Print(CurrentAccount currentAcc) {
+		System.out.println(currentAcc.printAccountInfo());
+	}
+
+	static void Print(SavingsAccount savingsAcc) {
+		System.out.println(savingsAcc.printAccountInfo());
+	}
+
+	static void Print(Account account) {
+		System.out.println(account.printAccountInfo());
+	}
 }

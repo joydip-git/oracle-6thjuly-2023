@@ -49,8 +49,68 @@ String str1 = "sunil";
 String str2 = "Kumar";
 str1.concat(str2);
 
-override overwrite
+final keyword:
+	a. class: the class can't be derived
+	b. method: can be used with overriden method. this method can't be overriden in further child classes
+	c. data member: the value of the data member has to be assigned during the declaration and that value can't altered
+	d. local variable of method: the value of the local variable has to be assigned during the declaration and that value can't altered
 
+method with same name in a class:
+	either method must have different number of arguments
+	or method must have different data typed arguments
+	or method must have different positioned arguments
+
+compile time polymorphism:
+method overloading:
+class Addition{
+	public void add(int a, int b){}
+	public void add(int a, int b, int c){}
+	public void add(int a, int b, float l){}
+	public void add(int a, float l,int b){}
+}
+
+Addition addition = new Addition();
+addition.add(12,13);
+addition.add(12,13,14);
+addition.add(12,13,14.5);
+addition.add(12,13.5,14);
+
+class A { 
+	public void foo(String name){}
+}
+class B extends A{ 
+	@Override 
+	public void foo(String name){}
+}
+class C extends A { 
+	@Override 
+	public void foo(String name){}
+}
+
+A obj = new B()/C();
+obj.foo();
+
+dynamic polymorphism:
+base =>  virtual
+child => override
+
+base method is not abstract => might or might not override in child class
+
+base method is not abstract => must override in child class
+
+abstract class:
+	a class 
+	- which has at least one abstract method or 
+	- it has inherited abstract method(s) and did not implement
+	an abstract can have non-abstract methods, getter-setter(s), data members, constructors
+	you can't create an instance of an abstract class
+	an abstract member (method or getter-setter) must be declared with abstract keyword as well as the class must be declared with abstract keyword
+
+child class inheriting from abstract base class:
+	you must implement (override) all abstract members of the base class here
+	if you don't, then the child class becomes abstract and you have to declare the class with abstract keyword
+
+	
 
 
 

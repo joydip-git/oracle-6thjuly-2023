@@ -1,6 +1,7 @@
 package com.java.inheritance.entities;
 
 public class SavingsAccount extends Account {
+	//final int x = 10;
 	private double minBalance;
 
 	public SavingsAccount() {
@@ -19,9 +20,9 @@ public class SavingsAccount extends Account {
 	public void setMinBalance(double minBalance) {
 		this.minBalance = minBalance;
 	}
-
+	//this method can't be overriden any further in the child classes of this class
 	@Override
-	public String printAccountInfo() {
+	public final String printAccountInfo() {
 		return super.printAccountInfo() + ", " + this.minBalance;
 	}
 }
