@@ -1,0 +1,41 @@
+Array in Java:
+-------------------------
+int[] numbers = new int[3];
+int []numbers=new int[3];
+int numbers[] = new int[3];
+
+//Array numbers = new Array(3);
+
+class IntArray{
+	int first, second, third;
+}
+
+Other OOP concepts:
+inheritance
+
+savings bank account
+	acc_id, acc_name, acc_balance, min_balance
+	withdraw(), deposit(), 
+
+current account
+	acc_id, acc_name, acc_balance, overdraft_limit
+	withdraw(), deposit(), 
+
+class Account{
+	int accId;
+	String accName;
+	double accBalance;
+
+	withdraw(){}
+	depost(){}
+}
+
+class SavingsAccount extends Account{
+	double minBalance;
+}
+
+class CurrentAccount extends Account{
+	double overdraftLimit;
+}
+
+SavingsAccount save = new SavingsAccount();
